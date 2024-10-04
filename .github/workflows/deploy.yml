@@ -152,8 +152,6 @@ jobs:
   upload:
       name: '🗂 Create release and upload artifacts'
       needs:
-        - build-mac-arm64
-        - build-mac-intel
         - build-windows
         - build-linux
       runs-on: ubuntu-latest
@@ -171,7 +169,5 @@ jobs:
             wget -q https://github.com/TheAssassin/pyuploadtool/releases/download/continuous/pyuploadtool-x86_64.AppImage
             chmod +x pyuploadtool-x86_64.AppImage
             ./pyuploadtool-x86_64.AppImage **/${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
-            ./pyuploadtool-x86_64.AppImage **/${{env.EXECUTABLE}}-${{env.VERSION}}-macOS-arm64.dmg
-            ./pyuploadtool-x86_64.AppImage **/${{env.EXECUTABLE}}-${{env.VERSION}}-macOS-Intel.dmg
             ./pyuploadtool-x86_64.AppImage **/${{env.EXECUTABLE}}-${{env.VERSION}}-Windows.exe
 
